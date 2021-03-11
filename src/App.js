@@ -22,6 +22,7 @@ function App() {
   const [provider, setProvider] = useState(null)
   const [account, setAccount] = useState('')
   const [txHash, setTxHash] = useState('')
+  const [signature, setSignature] = useState('')
 
   const connect = () => rLogin.connect()
     .then(({ provider }) => {
@@ -35,12 +36,20 @@ function App() {
     params: [{ from: account, to: faucetAddress, value: '100000' }]
   }).then(setTxHash)
 
+  const message = 'Welcome to RIF Identity suite!!!'
+  const personalSign = () => provider.request({
+    method: 'personal_sign',
+    params: [message, account]
+  }).then(setSignature)
+
   return (
     <div className="App">
       <RLoginButton onClick={connect}>Connect wallet</RLoginButton>
       <p>wallet address: {account}</p>
       <button onClick={sendTransaction} disabled={!account}>send transaction</button>
       <p>txHash: {txHash}</p>
+      <button onClick={personalSign} disabled={!account}>sign message</button>
+      <p>signature: {signature}</p>
     </div>
   );
 }
