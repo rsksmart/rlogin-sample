@@ -20,7 +20,8 @@ const rLogin = new RLogin({
 
 function App() {
   const [provider, setProvider] = useState(null)
-  const [account, setAccount] = useState(null)
+  const [account, setAccount] = useState('')
+  const [txHash, setTxHash] = useState('')
 
   const connect = () => rLogin.connect()
     .then(({ provider }) => {
@@ -28,10 +29,18 @@ function App() {
       provider.request({ method: 'eth_accounts' }).then(([account]) => setAccount(account))
     })
 
+  const faucetAddress = '0x88250f772101179a4ecfaa4b92a983676a3ce445'
+  const sendTransaction = () => provider.request({
+    method: 'eth_sendTransaction',
+    params: [{ from: account, to: faucetAddress, value: '100000' }]
+  }).then(setTxHash)
+
   return (
     <div className="App">
       <RLoginButton onClick={connect}>Connect wallet</RLoginButton>
       <p>wallet address: {account}</p>
+      <button onClick={sendTransaction} disabled={!account}>send transaction</button>
+      <p>txHash: {txHash}</p>
     </div>
   );
 }
