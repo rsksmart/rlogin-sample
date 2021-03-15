@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import RLogin, { RLoginButton } from '@rsksmart/rlogin'
 import WalletConnectProvider from '@walletconnect/web3-provider'
-import { useState } from 'react';
-import './App.css';
+import rifId from './rif-id-social.png'
+import './App.css'
 
 const rLogin = new RLogin({
   cachedProvider: false,
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src={rifId} height={200} /><br />
       <RLoginButton onClick={connect}>Connect wallet</RLoginButton>
       <p>wallet address: {account}</p>
       <hr />
