@@ -1,3 +1,15 @@
+<p align="middle">
+    <img src="https://www.rifos.org/assets/img/logo.svg" alt="logo" height="100" >
+</p>
+<h3 align="middle">rLogin sample</h3>
+<p align="middle">
+    Sample applications for rLogin
+</p>
+
+This application is an example and it is built following these instructions: (to be published soon)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
