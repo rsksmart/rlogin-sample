@@ -21,6 +21,7 @@ const rLogin = new RLogin({
 function App() {
   const [provider, setProvider] = useState(null)
   const [account, setAccount] = useState('')
+  const [balance, setBalance] = useState('')
   const [txHash, setTxHash] = useState('')
   const [signature, setSignature] = useState('')
 
@@ -29,6 +30,11 @@ function App() {
       setProvider(provider)
       provider.request({ method: 'eth_accounts' }).then(([account]) => setAccount(account))
     })
+
+  const getBalance = () => provider.request({
+    method: 'eth_getBalance',
+    params: [account]
+  }).then(setBalance)
 
   const faucetAddress = '0x88250f772101179a4ecfaa4b92a983676a3ce445'
   const sendTransaction = () => provider.request({
@@ -46,8 +52,13 @@ function App() {
     <div className="App">
       <RLoginButton onClick={connect}>Connect wallet</RLoginButton>
       <p>wallet address: {account}</p>
+      <hr />
+      <button onClick={getBalance} disabled={!account}>get balance</button>
+      <p>balance: {balance}</p>
+      <hr />
       <button onClick={sendTransaction} disabled={!account}>send transaction</button>
       <p>txHash: {txHash}</p>
+      <hr />
       <button onClick={personalSign} disabled={!account}>sign message</button>
       <p>signature: {signature}</p>
     </div>
