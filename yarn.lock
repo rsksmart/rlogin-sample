@@ -1711,10 +1711,10 @@
     did-jwt "^4.6.2"
     eth-sig-util "^3.0.0"
 
-"@rsksmart/rlogin@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@rsksmart/rlogin/-/rlogin-1.0.1.tgz#2cb27f192362d184793884a638f8d9d272a331f6"
-  integrity sha512-TOVPe6nDk/ZSJJicdQJXoNDa6sl5SVrYiKdslSmN7JJNOZ33SC84ICp5Y13Y+874py+LMMKonTIC9oxsnGZGSg==
+"@rsksmart/rlogin@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@rsksmart/rlogin/-/rlogin-1.0.2.tgz#77f4ceca65908ff6c7a1224fcebcba35ab90af9b"
+  integrity sha512-NjEcMJyllYJjPLkhYJuotTf1DOf7jL1pzXFfxZ1i1cpgSeEaZcAY2RRxNUgjdSkOSB48sZcKSacjLbI0dpXGfA==
   dependencies:
     "@rsksmart/ipfs-cpinner-client" "0.1.1-beta.13"
     "@rsksmart/vc-json-schemas-parser" "^1.0.0"
